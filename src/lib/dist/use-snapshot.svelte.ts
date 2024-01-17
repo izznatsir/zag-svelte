@@ -9,7 +9,7 @@ export function useSnapshot<
 	//
 	const { actions, context } = options ?? {};
 
-	let state = $state(service.state);
+	let state = $state.frozen(service.state);
 
 	$effect.pre(() => {
 		return subscribe(service.state, () => {
